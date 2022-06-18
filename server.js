@@ -39,3 +39,21 @@ app.post("/api/notes", function(req, res) {
         res.json(note);
     })
 });
+
+// HTML Routes
+app.get("/notes", function(req, res){
+    res.sendFile(path.join(__dirname, "./develop/public/notes.html"));
+});
+
+app.get("/", function(req, res){
+    res.sendFile(path.join(__dirname, "./develop/public/index.html"));
+});
+
+app.get("*", function(req, res){
+    res.sendFile(path.join(__dirname, "./develop/public/index.html"));
+});
+
+// Listening and port
+app.listen(PORT, function(){
+    console.log(`App listening at http://localhost:${PORT}`);
+})
